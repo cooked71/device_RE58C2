@@ -5,6 +5,7 @@
 #
 
 DEVICE_PATH := device/realme/RE58C2
+TARGET_KERNEL_CLANG_VERSION=r416183b
 
 # A/B
 AB_OTA_UPDATER := true
