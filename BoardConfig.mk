@@ -73,9 +73,7 @@ BOARD_KERNEL_SEPARATED_DTBO :=
 endif
 
 
-BOARD_BUILD_SYSTEM_EXT_IMAGE := true
-BOARD_BUILD_PRODUCT_IMAGE := true
-BOARD_BUILD_VENDOR_IMAGE := true
+
 
 
 
@@ -88,13 +86,7 @@ BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 104857600
 BOARD_SUPER_PARTITION_SIZE := 9126805504 # TODO: Fix hardcoded value
 BOARD_SUPER_PARTITION_GROUPS := realme_dynamic_partitions
-BOARD_REALME_DYNAMIC_PARTITIONS_PARTITION_LIST := 
-    system \
-    product \
-    system_ext \
-    vendor \
-    odm \
-    vendor_dlkm
+BOARD_REALME_DYNAMIC_PARTITIONS_PARTITION_LIST :=  system  product  system_ext  vendor   odm    vendor_dlkm
 BOARD_REALME_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 
 # Platform
