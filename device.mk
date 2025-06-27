@@ -12,6 +12,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
 #kernel
 PRODUCT_ENABLE_UFFD_GC := false
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/realme/RE58C2/compatibility_matrix.xml
 
 
 PRODUCT_PACKAGES += \
