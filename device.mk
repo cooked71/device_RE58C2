@@ -19,7 +19,7 @@ PRODUCT_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 PRODUCT_ENABLE_UFFD_GC := false
 
 PRODUCT_COPY_FILES += \
-    device/realme/RE58C2/compatibility_matrix.7.xml:system/compatibility_matrix.xml
+    device/realme/RE58C2/compatibility_matrix.7.xml:system/compatibility_matrix.7.xml
 
 
 PRODUCT_PACKAGES += \
