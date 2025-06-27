@@ -18,6 +18,9 @@ PRODUCT_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 #kernel
 PRODUCT_ENABLE_UFFD_GC := false
 
+PRODUCT_COPY_FILES += \
+    device/realme/RE58C2/compatibility_matrix.xml:system/compatibility_matrix.xml
+
 
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-impl \
