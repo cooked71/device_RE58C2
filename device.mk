@@ -12,7 +12,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
 #kernel
 PRODUCT_ENABLE_UFFD_GC := false
-PRODUCT_COMPATIBILITY_MATRIX_FILE := $(LOCAL_PATH)/compatibility_matrix.7.xml
 
 
 PRODUCT_PACKAGES += \
