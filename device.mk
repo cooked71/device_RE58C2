@@ -10,8 +10,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.7.xml
-PRODUCT_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/realme/RE58C2/compatibility_matrix.7.xml
+PRODUCT_COMPATIBILITY_MATRIX_FILE := device/realme/RE58C2/compatibility_matrix.xml
 
 
 
@@ -78,6 +78,23 @@ PRODUCT_PACKAGES += \
     idlefast.sh \
     init.insmod.sh \
     zramwb.sh \
+
+
+PRODUCT_PACKAGES += \
+    manifest.vendor.nxpnfclegacy.xml \
+    manifest.vendor.nxp.eventprocessor.xml \
+    manifest.vendor.sprd.hardware.commondcs.xml \
+    manifest.vendor.oppo.engnative.engineer.xml
+    
+
+PRODUCT_PACKAGES += \
+    vendor.oppo.engnative.engineer@1.0-service \
+    vendor.sprd.hardware.commondcs@1.0-service \
+    vendor.nxp.eventprocessor@1.0 \
+    vendor.nxp.nxpnfclegacy@1.0 \
+    vendor.oppo.engnative.engineer@1.0 \
+    vendor.sprd.hardware.commondcs@1.0
+
 
 PRODUCT_PACKAGES += \
     fstab.ums9230_4h10 \

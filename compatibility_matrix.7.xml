@@ -578,7 +578,7 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
-        <name>android.hardware.security.keymint</name>
+        <name>.keymint</name>
         <version>1-2</version>
         <interface>
             <name>IKeyMintDevice</name>
