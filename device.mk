@@ -83,7 +83,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     manifest.vendor.nxpnfclegacy.xml \
     manifest.vendor.nxp.eventprocessor.xml \
-    manifest.vendor.sprd.hardware.commondcs.xml \
+    vendor.sprd.hardware.commondcs.xml \
     manifest.vendor.oppo.engnative.engineer.xml
     
 
