@@ -93,7 +93,12 @@ PRODUCT_PACKAGES += \
     vendor.nxp.eventprocessor@1.0 \
     vendor.nxp.nxpnfclegacy@1.0 \
     vendor.oppo.engnative.engineer@1.0 \
-    vendor.sprd.hardware.commondcs@1.0
+    vendor.sprd.hardware.commondcs@1.0 \
+    librpmbclient \
+    libteeproduction \
+    libsecrpmbdata
+
+  
 
 
 PRODUCT_PACKAGES += \
