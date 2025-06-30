@@ -82,18 +82,13 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     manifest.vendor.nxpnfclegacy.xml \
-    manifest.vendor.nxp.eventprocessor.xml \
-    vendor.sprd.hardware.commondcs.xml \
-    manifest.vendor.oppo.engnative.engineer.xml
+    manifest.vendor.nxp.eventprocessor.xml 
+    
     
 
 PRODUCT_PACKAGES += \
-    vendor.oppo.engnative.engineer@1.0-service \
-    vendor.sprd.hardware.commondcs@1.0-service \
     vendor.nxp.eventprocessor@1.0 \
     vendor.nxp.nxpnfclegacy@1.0 \
-    vendor.oppo.engnative.engineer@1.0 \
-    vendor.sprd.hardware.commondcs@1.0 \
     librpmbclient \
     libteeproduction \
     libsecrpmbdata
