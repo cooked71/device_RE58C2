@@ -16,10 +16,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 #kernel
 PRODUCT_ENABLE_UFFD_GC := false
 
-PRODUCT_COPY_FILES += \
-   device/realme/RE58C2/product/compatibility_matrix.xml:product/etc/vintf/compatibility_matrix.xml \
-   device/realme/RE58C2/vendor_compatibility_matrix.xml:vendor/etc/vintf/compatibility_matrix.xml \
-   device/realme/RE58C2/vendor_manifest.xml:vendor/etc/vintf/manifest.xml
+DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE := device/realme/RE58C2/product/compatibility_matrix.xml:product/etc/vintf/compatibility_matrix.xml 
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/realme/RE58C2/vendor_compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := device/realme/RE58C2/vendor_manifest.xml
 
 
 
