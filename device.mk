@@ -19,6 +19,47 @@ PRODUCT_ENABLE_UFFD_GC := false
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE := device/realme/RE58C2/product/compatibility_matrix.xml:product/etc/vintf/compatibility_matrix.xml 
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/realme/RE58C2/vendor_compatibility_matrix.xml
 DEVICE_MANIFEST_FILE := device/realme/RE58C2/vendor_manifest.xml
+DEVICE_MANIFEST_FILES += \
+    proprietary/vendor/etc/vintf/manifest/ai_engine-default.xml \
+    proprietary/vendor/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml \
+    proprietary/vendor/etc/vintf/manifest/android.hardware.cas@1.2-service.xml \
+    proprietary/vendor/etc/vintf/manifest/android.hardware.drm-service.clearkey.xml \
+    proprietary/vendor/etc/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml \
+    proprietary/vendor/etc/vintf/manifest/android.hardware.health-service.example.xml \
+    proprietary/vendor/etc/vintf/manifest/android.hardware.security.keymint@2.0-unisoc.service.trusty.xml \
+    proprietary/vendor/etc/vintf/manifest/android.hardware.sensors-multihal.xml \
+    proprietary/vendor/etc/vintf/manifest/android.hardware.thermal@2.0-service.xml \
+    proprietary/vendor/etc/vintf/manifest/android.hardware.usb-service.example.xml \
+    proprietary/vendor/etc/vintf/manifest/android.hardware.wifi@1.0-service.xml \
+    proprietary/vendor/etc/vintf/manifest/android.hardware.wifi.hostapd.xml \
+    proprietary/vendor/etc/vintf/manifest/android.hardware.wifi.supplicant.xml \
+    proprietary/vendor/etc/vintf/manifest/bluetooth_audio.xml \
+    proprietary/vendor/etc/vintf/manifest/cplog_svc-default.xml \
+    proprietary/vendor/etc/vintf/manifest/enhance-default.xml \
+    proprietary/vendor/etc/vintf/manifest/face-default.xml \
+    proprietary/vendor/etc/vintf/manifest/hdcp-default.xml \
+    proprietary/vendor/etc/vintf/manifest/lights.xml \
+    proprietary/vendor/etc/vintf/manifest/manifest_android.hardware.drm-service.widevine.xml \
+    proprietary/vendor/etc/vintf/manifest/manifest_dualsim.xml \
+    proprietary/vendor/etc/vintf/manifest/manifest_media_c2_V1_1_unisoc.xml \
+    proprietary/vendor/etc/vintf/manifest/manifest_oplus_performance.xml \
+    proprietary/vendor/etc/vintf/manifest/memtrack.xml \
+    proprietary/vendor/etc/vintf/manifest/network-default.xml \
+    proprietary/vendor/etc/vintf/manifest/power.stats-default.xml \
+    proprietary/vendor/etc/vintf/manifest/rebootescrow-default.xml \
+    proprietary/vendor/etc/vintf/manifest/soter_default.xml \
+    proprietary/vendor/etc/vintf/manifest/trusty-default.xml \
+    proprietary/vendor/etc/vintf/manifest/tui-default.xml \
+    proprietary/vendor/etc/vintf/manifest/vendor-fingerprintmmi-default.xml \
+    proprietary/vendor/etc/vintf/manifest/vendor-log-default.xml \
+    proprietary/vendor/etc/vintf/manifest/vendor-oemlock-default.xml \
+    proprietary/vendor/etc/vintf/manifest/vendor-power-default.xml \
+    proprietary/vendor/etc/vintf/manifest/vendor.sprd.hardware.boot@1.2.xml \
+    proprietary/vendor/etc/vintf/manifest/vendor.sprd.hardware.commondcs@1.0-service.xml \
+    proprietary/vendor/etc/vintf/manifest/vendor.sprd.hardware.gnss@2.2-service.xml \
+    proprietary/vendor/etc/vintf/manifest/vendor.sprd.hardware.thermal@2.0-service.xml \
+    proprietary/vendor/etc/vintf/manifest/vibrator.xml
+
 
 
 
