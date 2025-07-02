@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <compatibility-matrix version="1.0" type="device">
-    <!-- NXP NFC HALs -->
-    <hal format="hidl" optional="true">
+    <hal format="hidl">
         <name>vendor.nxp.nxpnfc</name>
         <version>2.0</version>
         <interface>
@@ -8,14 +8,31 @@
             <instance>default</instance>
         </interface>
     </hal>
-   dor.sprd.hardware.boot</name>
+    <hal format="hidl">
+        <name>vendor.nxp.nxpnfclegacy</name>
+        <version>1.0</version>
+        <interface>
+            <name>INxpNfcLegacy</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oppo.engnative.engineer</name>
+        <version>1.0</version>
+        <interface>
+            <name>IEngineer</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.sprd.hardware.boot</name>
         <version>1.2</version>
         <interface>
             <name>IBootControl</name>
             <instance>default</instance>
         </interface>
     </hal>
-        <hal format="hidl" optional="true">
+    <hal format="hidl">
         <name>vendor.sprd.hardware.connmgr</name>
         <version>1.0</version>
         <interface>
@@ -23,7 +40,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl">
         <name>vendor.sprd.hardware.cplog_svc</name>
         <version>1.0</version>
         <interface>
@@ -31,7 +48,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl">
         <name>vendor.sprd.hardware.cplog_svc</name>
         <version>1.0</version>
         <interface>
@@ -39,15 +56,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.sprd.hardware.enhance</name>
-        <version>1.0</version>
-        <interface>
-            <name>IEnhance</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl">
         <name>vendor.sprd.hardware.fingerprintmmi</name>
         <version>1.0</version>
         <interface>
@@ -55,7 +64,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl">
         <name>vendor.sprd.hardware.gnss</name>
         <version>1.0</version>
         <interface>
@@ -63,15 +72,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.sprd.hardware.hdcp</name>
-        <version>1.0</version>
-        <interface>
-            <name>IHDCP</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl">
         <name>vendor.sprd.hardware.log</name>
         <version>1.0</version>
         <interface>
@@ -79,7 +80,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl">
         <name>vendor.sprd.hardware.network</name>
         <version>1.0</version>
         <interface>
@@ -87,7 +88,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl">
         <name>vendor.sprd.hardware.network</name>
         <version>1.0</version>
         <interface>
@@ -95,15 +96,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.sprd.hardware.performance</name>
-        <version>1.0</version>
-        <interface>
-            <name>IPerformance</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl">
         <name>vendor.sprd.hardware.thermal</name>
         <version>1.0</version>
         <interface>
@@ -111,7 +104,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl">
         <name>vendor.sprd.hardware.thermal</name>
         <version>2.0</version>
         <interface>
@@ -119,7 +112,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl">
         <name>vendor.sprd.hardware.trusty</name>
         <version>1.0</version>
         <interface>
@@ -127,7 +120,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl">
         <name>vendor.sprd.hardware.wcn</name>
         <version>1.0</version>
         <interface>
@@ -135,9 +128,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-
-    <!-- Unisoc AI Engine -->
-    <hal format="hidl" optional="true">
+    <hal format="hidl">
         <name>vendor.unisoc.hardware.ai_engine</name>
         <version>1.0</version>
         <interface>
@@ -145,125 +136,4 @@
             <instance>default</instance>
         </interface>
     </hal>
-
-    <!-- Unisoc Radio HALs (slots 1 & 2) -->
-    <hal format="hidl" optional="true">
-        <name>vendor.unisoc.hardware.radio.data</name>
-        <version>1.0</version>
-        <interface>
-            <name>IExtRadioData</name>
-            <instance>slot1</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.unisoc.hardware.radio.data</name>
-        <version>1.0</version>
-        <interface>
-            <name>IExtRadioData</name>
-            <instance>slot2</instance>
-        </interface>
-    </hal>
-
-    <hal format="hidl" optional="true">
-        <name>vendor.unisoc.hardware.radio.ims</name>
-        <version>1.0</version>
-        <interface>
-            <name>IImsRadio</name>
-            <instance>slot1</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.unisoc.hardware.radio.ims</name>
-        <version>1.0</version>
-        <interface>
-            <name>IImsRadio</name>
-            <instance>slot2</instance>
-        </interface>
-    </hal>
-
-    <hal format="hidl" optional="true">
-        <name>vendor.unisoc.hardware.radio.messaging</name>
-        <version>1.0</version>
-        <interface>
-            <name>IExtRadioMessaging</name>
-            <instance>slot1</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.unisoc.hardware.radio.messaging</name>
-        <version>1.0</version>
-        <interface>
-            <name>IExtRadioMessaging</name>
-            <instance>slot2</instance>
-        </interface>
-    </hal>
-
-    <hal format="hidl" optional="true">
-        <name>vendor.unisoc.hardware.radio.modem</name>
-        <version>1.0</version>
-        <interface>
-            <name>IExtRadioModem</name>
-            <instance>slot1</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.unisoc.hardware.radio.modem</name>
-        <version>1.0</version>
-        <interface>
-            <name>IExtRadioModem</name>
-            <instance>slot2</instance>
-        </interface>
-    </hal>
-
-    <hal format="hidl" optional="true">
-        <name>vendor.unisoc.hardware.radio.network</name>
-        <version>1.0</version>
-        <interface>
-            <name>IExtRadioNetwork</name>
-            <instance>slot1</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.unisoc.hardware.radio.network</name>
-        <version>1.0</version>
-        <interface>
-            <name>IExtRadioNetwork</name>
-            <instance>slot2</instance>
-        </interface>
-    </hal>
-
-    <hal format="hidl" optional="true">
-        <name>vendor.unisoc.hardware.radio.sim</name>
-        <version>1.0</version>
-        <interface>
-            <name>IExtRadioSim</name>
-            <instance>slot1</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.unisoc.hardware.radio.sim</name>
-        <version>1.0</version>
-        <interface>
-            <name>IExtRadioSim</name>
-            <instance>slot2</instance>
-        </interface>
-    </hal>
-
-    <hal format="hidl" optional="true">
-        <name>vendor.unisoc.hardware.radio.voice</name>
-        <version>1.0</version>
-        <interface>
-            <name>IExtRadioVoice</name>
-            <instance>slot1</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.unisoc.hardware.radio.voice</name>
-        <version>1.0</version>
-        <interface>
-            <name>IExtRadioVoice</name>
-            <instance>slot2</instance>
-        </interface>
-    </hal>
 </compatibility-matrix>
-
