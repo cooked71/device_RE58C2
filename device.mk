@@ -19,7 +19,7 @@ PRODUCT_ENABLE_UFFD_GC := false
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE := device/realme/RE58C2/product/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/realme/RE58C2/vendor_compatibility_matrix.xml
 
-DEVICE_MANIFEST_FILE := device/realme/RE58C2/vendor_manifest.xml
+DEVICE_MANIFEST_FILE := device/realme/RE58C2/manifest.xml
 
 DEVICE_MANIFEST_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/ai_engine-default.xml \
