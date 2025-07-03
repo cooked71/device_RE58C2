@@ -22,6 +22,8 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/realme/RE58C2/compatibility
 PRODUCT_VENDOR_MANIFEST_FILES := device/realme/RE58C2/manifest.xml
 
 DEVICE_MANIFEST_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/compatibility_matrix.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/ai_engine-default.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/android.hardware.cas@1.2-service.xml \
