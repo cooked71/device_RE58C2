@@ -137,6 +137,8 @@ BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 1
 
 # VINTF
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/manifest.xml:vendor/etc/vintf/manifest.xml
 ODM_MANIFEST_FILES += vendor/realme/RE58C2/proprietary/odm/etc/vintf/manifest_nfc.xml
 
 # Inherit the proprietary files
