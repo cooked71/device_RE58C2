@@ -77,6 +77,7 @@ android.hardware.boot@1.2-impl.recovery \
 vendor.sprd.hardware.boot@1.2-impl \
 vendor.sprd.hardware.boot@1.2-impl.recovery
 
+#mod from twrp
 PRODUCT_PACKAGES += \
     bootctrl \
     bootctrl.recovery 
@@ -87,7 +88,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctrl.ums9230
-
+#end from trwp
 
 # PRODUCT_PACKAGES += \
 #    android.hardware.boot@1.2-impl \
