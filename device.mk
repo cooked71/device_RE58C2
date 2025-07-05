@@ -64,7 +64,11 @@ DEVICE_MANIFEST_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/vendor.sprd.hardware.thermal@2.0-service.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/vibrator.xml
 
-
+# Ramdisk
+PRODUCT_PACKAGES += \
+    init.recovery.common.rc \
+    init.recovery.usb.rc \
+    init.recovery.RE58C2.rc
 
 
 
