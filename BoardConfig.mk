@@ -50,9 +50,8 @@ AB_OTA_PARTITIONS += \
     odm \
     vbmeta \
     vendor_boot \
-    vendor_dlkm \
-    vbmeta_system \
-    vbmeta_vendor
+    vendor_dlkm 
+  
 
 # Vendor Boot configuration
 TARGET_NO_RECOVERY := true
