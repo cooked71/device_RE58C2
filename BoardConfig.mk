@@ -1,30 +1,145 @@
+#
+# Copyright (C) 2025 The LineageOS Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+DEVICE_PATH := device/realme/RE58C2
+
+# Build system flags
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
+ALLOW_MISSING_DEPENDENCIES := true
+
+# Release tools
+TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
+
+# SEPolicy
+BOARD_SEPOLICY_VERS := 202404
+
+# Architecture
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := cortex-a75
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_VARIANT := generic
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
+
+# Platform
+TARGET_BOARD_PLATFORM := ums9230
+TARGET_BOOTLOADER_BOARD_NAME := ums9230_hulk
+TARGET_NO_BOOTLOADER := true
+
+# Display
+TARGET_SCREEN_DENSITY := 320
+
+# A/B partitions
+AB_OTA_UPDATER := true
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    system \
+    product \
+    vendor \
+    odm \
+    odm_dlkm \
+    vbmeta \
+    vendor_boot \
+    vendor_dlkm \
+    vbmeta_system \
+    vbmeta_vendor
+
 # Vendor Boot configuration
 TARGET_NO_RECOVERY := true
 BOARD_BOOT_HEADER_VERSION := 4
-
-# Use vendor_boot.img
 BOARD_USES_VENDOR_BOOT_IMAGE := true
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
-
-# Include recovery ramdisk and resources
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
-
-# Compression
 BOARD_RAMDISK_USE_LZ4 := true
 
-# Kernel image
+# Kernel build
+TARGET_KERNEL_SOURCE := kernel/realme/RE58C2
+TARGET_KERNEL_CONFIG := RE58C2_defconfig
+TARGET_KERNEL_CLANG_VERSION := r416183b
 BOARD_KERNEL_IMAGE_NAME := Image
-BOARD_INCLUDE_DTB_IN_BOOTIMG := false
 BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_INCLUDE_DTB_IN_BOOTIMG := false
 
-# AVB
+# Kernel arguments
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 buildvariant=user
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+
+# DTBO
+BOARD_DTBOIMG_PARTITION_SIZE := 8388608
+
+# Boot/ Vendor Boot sizes
+BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864          # 64 MB
+BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 104857600  # 100 MB
+
+# Super partition configuration
+BOARD_SUPER_PARTITION_SIZE := 9126805504
+BOARD_SUPER_PARTITION_GROUPS := realme_dynamic_partitions
+BOARD_REALME_DYNAMIC_PARTITIONS_PARTITION_LIST := system product system_ext vendor odm vendor_dlkm
+BOARD_REALME_DYNAMIC_PARTITIONS_SIZE := 9122611200
+
+# Dynamic partitions filesystem
+BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := erofs
+BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := erofs
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
+BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := erofs
+BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := erofs
+
+# Partition sizes
+BOARD_PRODUCTIMAGE_PARTITION_SIZE := 1615167488
+BOARD_SYSTEM_EXTIMAGE_PARTITION_SIZE := 542355456
+BOARD_VENDORIMAGE_PARTITION_SIZE := 545714176
+BOARD_ODMIMAGE_PARTITION_SIZE := 336166912
+BOARD_VENDOR_DLKMIMAGE_PARTITION_SIZE := 9940992
+
+# Filesystem support
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
+
+# Flash block size
+BOARD_FLASH_BLOCK_SIZE := 262144  # (BOARD_KERNEL_PAGESIZE * 64)
+
+# Recovery fstab
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.ums9230_4h10
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+
+# Verified Boot (AVB)
+BOARD_AVB_ENABLE := true
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 BOARD_AVB_VENDOR_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_VENDOR_BOOT_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX := 1
 BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 1
 
-# Vendor boot partition size
-BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 104857600
+# Security patch level
+VENDOR_SECURITY_PATCH := 2024-07-05
 
+# VINTF manifest
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+ODM_MANIFEST_FILES += vendor/realme/RE58C2/proprietary/odm/etc/vintf/manifest_nfc.xml
+
+# Properties
+TARGET_SYSTEM_PROP        += $(DEVICE_PATH)/system.prop
+TARGET_VENDOR_PROP        += $(DEVICE_PATH)/vendor.prop
+TARGET_PRODUCT_PROP       += $(DEVICE_PATH)/product.prop
+TARGET_SYSTEM_EXT_PROP    += $(DEVICE_PATH)/system_ext.prop
+TARGET_ODM_PROP           += $(DEVICE_PATH)/odm.prop
+TARGET_VENDOR_DLKM_PROP   += $(DEVICE_PATH)/vendor_dlkm.prop
+TARGET_ODM_DLKM_PROP      += $(DEVICE_PATH)/odm_dlkm.prop
+
+# Inherit vendor blobs
+include vendor/realme/RE58C2/BoardConfigVendor.mk
