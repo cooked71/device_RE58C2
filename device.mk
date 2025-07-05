@@ -70,12 +70,29 @@ PRODUCT_PACKAGES += \
     init.recovery.usb.rc \
     init.recovery.RE58C2.rc
 
+# Boot control HAL
+PRODUCT_PACKAGES += \
+android.hardware.boot@1.2-impl \
+android.hardware.boot@1.2-impl.recovery \
+vendor.sprd.hardware.boot@1.2-impl \
+vendor.sprd.hardware.boot@1.2-impl.recovery
+
+PRODUCT_PACKAGES += \
+    bootctrl \
+    bootctrl.recovery 
 
 
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-impl \
-    android.hardware.boot@1.2-impl.recovery \
-    android.hardware.boot@1.2-service
+    bootctrl.ums9230
+
+PRODUCT_PACKAGES_DEBUG += \
+    bootctrl.ums9230
+
+
+# PRODUCT_PACKAGES += \
+#    android.hardware.boot@1.2-impl \
+#    android.hardware.boot@1.2-impl.recovery \
+#    android.hardware.boot@1.2-service
 
 PRODUCT_PACKAGES += \
     update_engine \
