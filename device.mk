@@ -103,7 +103,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/first_stage_ramdisk/fstab.ums9230_hulk:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.ums9230_hulk \
     $(LOCAL_PATH)/recovery/root/first_stage_ramdisk/fstab.ums9230_nico:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.ums9230_nico\
     $(LOCAL_PATH)/recovery/root/first_stage_ramdisk/fstab.ums9230_zebu:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.ums9230_zebu \
-
     $(LOCAL_PATH)/recovery/root/first_stage_ramdisk/fstab.module:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/root/first_stage_ramdisk/fstab.module \
     $(LOCAL_PATH)/recovery/root/first_stage_ramdisk/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/root/first_stage_ramdisk/fstab.RMX3624 \
     $(LOCAL_PATH)/recovery/root/first_stage_ramdisk/fstab.ums9230_1h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/root/first_stage_ramdisk/fstab.ums9230_1h10 \
