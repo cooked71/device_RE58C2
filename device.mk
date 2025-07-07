@@ -90,9 +90,9 @@ PRODUCT_PACKAGES_DEBUG += \
     bootctrl.ums9230
 
 # Fatab
-# PRODUCT_COPY_FILES += \
-#   $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.module:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.module \
-#   $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.RMX3624 \
+PRODUCT_COPY_FILES += \
+   $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.module:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.module \
+   $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.RMX3624 
 #   $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_1h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_1h10 \
 #   $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_1h10_go:$(TARGET_COPY_OUT_VENDOR_RAMDISK)first_stage_ramdisk/fstab.ums9230_1h10_go \
 #    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_4h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_4h10 \
