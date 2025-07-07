@@ -53,6 +53,8 @@ AB_OTA_PARTITIONS += \
     vendor_boot \
     vendor_dlkm 
   
+BOARD_USES_RECOVERY_AS_BOOT := true
+
 
 # Vendor Boot configuration
 TARGET_NO_RECOVERY := true
