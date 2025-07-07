@@ -104,6 +104,11 @@ PRODUCT_PACKAGES_DEBUG += \
 #    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_nico\
 #    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_zebu:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_zebu 
 
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.2-impl \
+    android.hardware.boot@1.2-impl.recovery \
+vendor.sprd.hardware.boot@1.2-impl \
+vendor.sprd.hardware.boot@1.2-impl.recovery
 
 
 #end from trwp
