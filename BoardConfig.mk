@@ -165,7 +165,7 @@ asix.ko \
 ax88179_178a.ko \
 bq2560x-charger.ko \
 bq2597x-charger.ko \
-chipone-tddi.ko\\
+chipone-tddi.ko\
 clk-sprd.ko \
 core.ko \
 cpufreq_userspace.ko \
