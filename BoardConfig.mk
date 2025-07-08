@@ -202,9 +202,6 @@ mipi_driver.ko \
 misc_sprd_uid.ko \
 mmc_hsq.ko \
 mmc_swcq.ko \
-modules.alias \
-modules.dep \
-modules.softdep \
 musb_hdrc.ko \
 musb_sprd.ko \
 nq-nci.ko \
