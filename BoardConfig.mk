@@ -155,6 +155,10 @@ BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 1
 # Security patch level
 VENDOR_SECURITY_PATCH := 2024-07-05
 
+#kernel modules load
+BOARD_VENDOR_KERNEL_MODULES_LOAD := $(DEVICE_PATH)/modules.load
+
+
 # VINTF manifest
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 ODM_MANIFEST_FILES += vendor/realme/RE58C2/proprietary/odm/etc/vintf/manifest_nfc.xml
