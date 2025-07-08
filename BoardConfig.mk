@@ -294,7 +294,7 @@ trusty-pm.ko \
 trusty-tui.ko \
 trusty-virtio.ko \
 twofish_common.ko \
-twofish_generic.ko \ 
+twofish_generic.ko \
 ufs-sprd_qogirl6.ko \
 ump518-regulator.ko \
 ums9230-clk.ko \
