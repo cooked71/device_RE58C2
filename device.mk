@@ -95,6 +95,13 @@ PRODUCT_PACKAGES += \
     tune2fs.vendor_ramdisk \
     resize2fs.vendor_ramdisk
 
+PRODUCT_PACKAGES += \
+    linker.recovery \
+    shell_and_utilities_recovery \
+
+PRODUCT_PACKAGES += adbd.recovery
+
+
 # Fstab
 PRODUCT_COPY_FILES += \
    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.module:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.module \
