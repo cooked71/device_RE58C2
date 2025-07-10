@@ -46,16 +46,12 @@ TARGET_SCREEN_DENSITY := 320
 # A/B partitions
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
-    boot \
-    dtbo \
+   vendor_dlkm \
     system \
-    system_ext \
     product \
+    system_ext \
     vendor \
-    odm \
-    vbmeta \
-    vendor_boot \
-    vendor_dlkm 
+    odm
   
 
 # Vendor Boot configuration
@@ -125,11 +121,11 @@ BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := erofs
 
 # Partition sizes
-BOARD_PRODUCTIMAGE_PARTITION_SIZE := 1615167488
-BOARD_SYSTEM_EXTIMAGE_PARTITION_SIZE := 542355456
-BOARD_VENDORIMAGE_PARTITION_SIZE := 545714176
-BOARD_ODMIMAGE_PARTITION_SIZE := 336166912
-BOARD_VENDOR_DLKMIMAGE_PARTITION_SIZE := 9940992
+#BOARD_PRODUCTIMAGE_PARTITION_SIZE := 1615167488
+#BOARD_SYSTEM_EXTIMAGE_PARTITION_SIZE := 542355456
+#BOARD_VENDORIMAGE_PARTITION_SIZE := 545714176
+#BOARD_ODMIMAGE_PARTITION_SIZE := 336166912
+#BOARD_VENDOR_DLKMIMAGE_PARTITION_SIZE := 9940992
 
 TARGET_COPY_OUT_VENDOR:=vendor
 TARGET_COPY_OUT_PRODUCT:=product
@@ -349,9 +345,11 @@ TARGET_SYSTEM_PROP        += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP        += $(DEVICE_PATH)/vendor.prop
 TARGET_PRODUCT_PROP       += $(DEVICE_PATH)/product.prop
 TARGET_SYSTEM_EXT_PROP    += $(DEVICE_PATH)/system_ext.prop
+TARGET_SYSTEM_DLKM_PROP   += $(DEVICE_PATH)/system_dlkm.prop
 TARGET_ODM_PROP           += $(DEVICE_PATH)/odm.prop
 TARGET_VENDOR_DLKM_PROP   += $(DEVICE_PATH)/vendor_dlkm.prop
 TARGET_ODM_DLKM_PROP      += $(DEVICE_PATH)/odm_dlkm.prop
+
 
 # Inherit vendor blobs
 include vendor/realme/RE58C2/BoardConfigVendor.mk
