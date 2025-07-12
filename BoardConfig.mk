@@ -113,6 +113,9 @@ BOARD_SUPER_PARTITION_GROUPS := realme_dynamic_partitions
 BOARD_REALME_DYNAMIC_PARTITIONS_PARTITION_LIST := system product system_ext vendor odm vendor_dlkm
 BOARD_REALME_DYNAMIC_PARTITIONS_SIZE := 9122611200
 
+#force build superpartition
+BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := true
+
 # Dynamic partitions filesystem
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := erofs
