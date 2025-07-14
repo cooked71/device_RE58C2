@@ -172,7 +172,7 @@ BOARD_USES_UNISOC_HARDWARE := true
 TARGET_BOARD_PLATFORM := ums9230
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/ramdisk/root/system/etc/recovery.fstab
 
 # Security patch level
 VENDOR_SECURITY_PATCH := 2099-12-31
