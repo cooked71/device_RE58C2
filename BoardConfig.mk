@@ -17,7 +17,6 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 # A/B partitions
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
-    boot \
     dtbo \
     system \
     system_ext \
@@ -25,7 +24,6 @@ AB_OTA_PARTITIONS += \
     vendor \
     odm \
     vbmeta \
-    vendor_boot \
     vendor_dlkm 
 
 #vendor_boot configuration
