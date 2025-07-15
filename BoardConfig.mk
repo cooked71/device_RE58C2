@@ -111,6 +111,11 @@ BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
 BOARD_KERNEL_SEPARATED_DTBO := 
 endif
 
+#dtbo prebuilt
+ifneq ($(BOARD_PREBUILT_DTBOIMAGE),)
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --include_descriptors_from_image $(BOARD_PREBUILT_DTBOIMAGE)
+endif
+
 
 
 # Boot/ Vendor Boot sizes
