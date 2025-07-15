@@ -186,6 +186,10 @@ BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 1
 # Security patch level
 VENDOR_SECURITY_PATCH := 2024-07-05
 
+#sepolicy for fastdotd
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/common
+
+
 # Kernel modules
 BOOT_KERNEL_MODULES += \
 aes-ce-ccm.ko \
