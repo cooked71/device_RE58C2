@@ -26,14 +26,12 @@ BOARD_SEPOLICY_VERS := 202404
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 := 
 TARGET_CPU_VARIANT := generic
 TARGET_CPU_VARIANT_RUNTIME := cortex-a75
 
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv7-a-neon
 TARGET_2ND_CPU_ABI := armeabi-v7a
-TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 
@@ -75,12 +73,14 @@ TARGET_KERNEL_SOURCE := kernel/realme/RE58C2
 TARGET_KERNEL_CONFIG := RE58C2_defconfig
 TARGET_KERNEL_CLANG_VERSION := r416183b
 BOARD_KERNEL_IMAGE_NAME := Image
+BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
 # Kernel arguments
-BOARD_KERNEL_BASE := 0x00008000
-BOARD_PAGE_SIZE := 4096
-BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 buildvariant=user
+BOARD_MKBOOTIMG_ARGS += --r_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET := 0x05400000
 BOARD_TAGS_OFFSET := 0x00000100
@@ -95,28 +95,17 @@ ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
 BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
-BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BOARD_INCLUDE_DTB_IN_BOOTIMG := 
 BOARD_PREBUILT_IMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
-BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_KERNEL_SEPARATED_DTBO := 
 endif
 
-BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
-BOARD_MKBOOTIMG_ARGS += --vendor_cmdline $(BOARD_VENDOR_CMDLINE)
-BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_PAGE_SIZE) --board ""
-BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_TAGS_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
-BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
-
-
-
-
+# DTBO
+BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 
 # Boot/ Vendor Boot sizes
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864          # 64 MB
-BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 104857600
-BOARD_HAS_LARGE_FILESYSTEM := true
+BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 104857600  # 100 MB
 
 # Super partition configuration
 BOARD_SUPER_PARTITION_SIZE := 9126805504
@@ -125,10 +114,7 @@ BOARD_REALME_DYNAMIC_PARTITIONS_PARTITION_LIST := system product system_ext vend
 BOARD_REALME_DYNAMIC_PARTITIONS_SIZE := 9122611200
 
 #force build superpartition
-#BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := true
-
-# DTBO
-BOARD_DTBOIMG_PARTITION_SIZE := 8388608
+BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := true
 
 # Dynamic partitions filesystem
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := erofs
@@ -136,7 +122,6 @@ BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := erofs
-
 
 # Partition sizes
 #BOARD_PRODUCTIMAGE_PARTITION_SIZE := 1615167488
@@ -151,32 +136,17 @@ TARGET_COPY_OUT_SYSTEM_EXT:=system_ext
 TARGET_COPY_OUT_VENDOR_DLKM:=vendor_dlkm
 TARGET_COPY_OUT_ODM:=odm
 
+
 # Filesystem support
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
-TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 
 # Flash block size
-BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
+BOARD_FLASH_BLOCK_SIZE := 262144  # (BOARD_KERNEL_PAGESIZE * 64)
 
 # Recovery fstab
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/ramdisk/root/system/etc/recovery.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
-
-# Verified Boot from a666ln
-# BOARD_AVB_ENABLE := true
-# BOARD_AVB_VBMETA_SYSTEM := system system_ext product vendor vendor_dlkm odm
-# BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
-# BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 4
-# BOARD_AVB_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
-# BOARD_AVB_BOOT_ALGORITHM := SHA256_RSA4096
-# BOARD_AVB_BOOT_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-# BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION := 4
-# BOARD_AVB_VENDOR_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
-# BOARD_AVB_VENDOR_BOOT_ALGORITHM := SHA256_RSA4096
-# BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-# BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 1
-
 
 # Verified Boot (AVB)
 BOARD_AVB_ENABLE := true
@@ -188,20 +158,187 @@ BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX := 1
 BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 1
 
 
-#sepolicy for fastdotd
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/common
+# Verified Boot (AVB) from chat gpt
+# BOARD_AVB_ENABLE := true
 
-# Platform
-BOARD_USES_UNISOC_HARDWARE := true
-BOARD_USES_METADATA_PARTITION := true
+# vbmeta signing (top-level vbmeta that covers partitions)
+#BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+#BOARD_AVB_ALGORITHM := SHA256_RSA4096
+#BOARD_AVB_ROLLBACK_INDEX := 1
+#BOARD_AVB_ROLLBACK_INDEX_LOCATION := 1
+
+# Optional: disable hashtree verification during development
+#BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
+
+# Sign vendor_boot
+#BOARD_AVB_VENDOR_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+#BOARD_AVB_VENDOR_BOOT_ALGORITHM := SHA256_RSA4096
+#BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX := 1
+#BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 3
+
+# Sign boot
+#BOARD_AVB_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+#BOARD_AVB_BOOT_ALGORITHM := SHA256_RSA4096
+#BOARD_AVB_BOOT_ROLLBACK_INDEX := 1
+#BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION := 2
+# end chatgtp
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2099-12-31
+VENDOR_SECURITY_PATCH := 2024-07-05
+
+# Kernel modules
+BOOT_KERNEL_MODULES += \
+aes-ce-ccm.ko \
+aes-neon-blk.ko \
+apsys-dvfs.ko \
+arc4.ko \
+asix.ko \
+ax88179_178a.ko \
+bq2560x-charger.ko \
+bq2597x-charger.ko \
+chipone-tddi.ko\
+clk-sprd.ko \
+core.ko \
+cpufreq_userspace.ko \
+device_info.ko \
+extcon-usb-gpio.ko \
+fan53555.ko \
+focaltech_touch-modules.ko \
+focaltech_tp.ko \
+ghash-ce.ko \
+gnss_common_ctl_all.ko \
+gnss_dbg.ko \
+gnss_pmnotify_ctl.ko \
+gpio-eic-sprd.ko \
+gpio.ko \
+gpio-pmic-eic-sprd.ko \
+gpio-sprd.ko \
+hardware_info.ko \
+himax_mmi.ko \
+hung_task_enhance.ko \
+hyb.ko \
+i2c-sprd-hw-v2.ko \
+i2c-sprd.ko \
+ims_bridge.ko \
+ims_bridge_t.ko \
+ion_cma_heap.ko \
+ion_ipc_trusty.ko \
+kfifo_buf.ko \
+lcd_bias_adjust.ko \
+leds-sc27xx-bltc.ko \
+ledtrig-pattern.ko \
+lzo.ko \
+lzo-rle.ko \
+mipi_driver.ko \
+misc_sprd_uid.ko \
+mmc_hsq.ko \
+mmc_swcq.ko \
+musb_hdrc.ko \
+musb_sprd.ko \
+nq-nci.ko \
+nvmem-sc27xx-efuse.ko \
+nvmem_sprd_cache_efuse.ko \
+nvmem_sprd_efuse.ko \
+omnivision_tcm.ko \
+oplus_chg.ko \
+op_rf_cable_monitor.ko \
+phy-sprd-qogirl6.ko \
+pinctrl.ko \
+pinctrl-sprd.ko \
+pinctrl-sprd-qogirl6.ko \
+pwm-sprd.ko \
+rpmb.ko \
+rtc-sc27xx.ko \
+sblock_bridge.ko \
+sbuf_bridge.ko \
+sc2332_sipc_wlan.ko \
+sc2355_sdio_wlan.ko \
+sc2355_sipc_wlan.ko \
+sc2730-regulator.ko \
+sc27xx_adc.ko \
+sc27xx_fuel_gauge.ko \
+sc27xx-poweroff.ko \
+sc27xx_tsensor_thermal.ko \
+sc27xx_typec.ko \
+sc27xx-vibra.ko \
+sdhci-sprd.ko \
+sensorhub.ko \
+seth.ko \
+sfp_core.ko \
+sha1-ce.ko \
+sipc-core.ko \
+sipx.ko \
+slog_bridge.ko \
+spipe.ko \
+spi-sprd-adi.ko \
+spi-sprd.ko \
+spool.ko \
+sprd_7sreset.ko \
+sprd_cp_dvfs.ko \
+sprd_cpu_cooling.ko \
+sprd-cpufreq-public.ko \
+sprd-cpufreq-v2.ko \
+sprd_ddr_dvfs.ko \
+sprd_disp_pm_domain_sharkl3.ko \
+sprd-dma.ko \
+sprd_gpu_cooling.ko \
+sprd_hwspinlock.ko \
+sprd-ion.ko \
+sprd_iq.ko \
+sprd_manufacturer_model.ko \
+sprd_map.ko \
+sprd_mipi.ko \
+sprd_modem_loader.ko \
+sprd_net_helper.ko \
+sprd_pdbg.ko \
+sprd_pmic_refout.ko \
+sprd_pmic_smpl.ko \
+sprd_pmic_syscon.ko \
+sprd_pmic_wdt.ko \
+sprd_power_manager.ko \
+sprd-sc27xx-spi.ko \
+sprd_shm.ko \
+sprd-sipc-virt-bus.ko \
+sprd_sip_svc.ko \
+sprd_soc_id.ko \
+sprd_soc_thm.ko \
+sprd_systimer.ko \
+sprd_thermal.ko \
+sprd_time_sync_cp.ko \
+sprd_time_sync.ko \
+sprd-top-dvfs.ko \
+sprd_u_ether.ko \
+sprd_usb_f_rndis.ko \
+sprd_usbpinmux_qogirl6.ko \
+sprd_wdf.ko \
+sprd_wdt_fiq.ko \
+sprd_wlan.ko \
+thermal-generic-adc.ko \
+trusty-ipc.ko \
+trusty-irq.ko \
+trusty.ko \
+trusty-log.ko \
+trusty-pm.ko \
+trusty-tui.ko \
+trusty-virtio.ko \
+twofish_common.ko \
+twofish_generic.ko \
+ufs-sprd_qogirl6.ko \
+ump518-regulator.ko \
+ums9230-clk.ko \
+unisoc-iommu.ko \
+unisoc-mailbox.ko \
+usb_f_vser.ko \
+virt-dma.ko \
+virtio_crypto.ko \
+wcn_bsp.ko \
+zram.ko \
+zsmalloc.ko
+
 
 BOARD_VENDOR_KERNEL_MODULES_LOAD += $(BOOT_KERNEL_MODULES)
 
-# Temp
-TW_CUSTOM_CPU_TEMP_PATH := sys/devices/virtual/thermal/thermal_zone16/temp
+
 
 # VINTF manifest
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
@@ -217,38 +354,6 @@ TARGET_ODM_PROP           += $(DEVICE_PATH)/odm.prop
 TARGET_VENDOR_DLKM_PROP   += $(DEVICE_PATH)/vendor_dlkm.prop
 TARGET_ODM_DLKM_PROP      += $(DEVICE_PATH)/odm_dlkm.prop
 
-TARGET_RECOVERY_DEVICE_MODULES += logcat
-
-#additional lib for fix decryption
-RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libtrusty.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libtrusty.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libgatekeeper.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libgatekeeper.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.security.keymint-V2-ndk.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/android.hardware.security.keymint-V2-ndk.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.security.secureclock-V1-ndk.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/android.hardware.security.secureclock-V1-ndk.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.security.sharedsecret-V1-ndk.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/android.hardware.security.sharedsecret-V1-ndk.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/lib_android_keymaster_keymint_utils.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/lib_android_keymaster_keymint_utils.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymint.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkeymint.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster_messages.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkeymaster_messages.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.gatekeeper@1.0.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/android.hardware.gatekeeper@1.0.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libcppbor_external.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libcppbor_external.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster_portable.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkeymaster_portable.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libcppcose_rkp.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libcppcose_rkp.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libsoft_attestation_cert.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libsoft_attestation_cert.so \
 
 # Inherit vendor blobs
 include vendor/realme/RE58C2/BoardConfigVendor.mk
