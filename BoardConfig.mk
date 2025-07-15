@@ -188,9 +188,6 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/common
 
 # Platform
 BOARD_USES_UNISOC_HARDWARE := true
-TARGET_BOARD_PLATFORM := ums9230
-
-
 
 # Security patch level
 VENDOR_SECURITY_PATCH := 2099-12-31
