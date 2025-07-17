@@ -1,3 +1,4 @@
+
 #
 ## Please include it in /init.recovery.${ro.hardware}.rc
 #
@@ -91,6 +92,21 @@ on init
     mkdir /config/usb_gadget/g1/functions/gser.gs5 0770 shell shell
     mkdir /config/usb_gadget/g1/functions/gser.gs6 0770 shell shell
     mkdir /config/usb_gadget/g1/functions/gser.gs7 0770 shell shell
+
+    # Create dev/mapper directory if missing
+    if [ ! -d /dev/mapper ]; then
+        mkdir /dev/mapper 0755 root root
+    fi
+
+    # Create device-mapper device nodes if missing (dm-0 to dm-15)
+    exec u:r:su:s0 -- sh -c '
+    for i in $(seq 0 15); do
+        if [ ! -b /dev/block/dm-$i ]; then
+            mknod /dev/block/dm-$i b 253 $i
+            chmod 660 /dev/block/dm-$i
+        fi
+    done
+    '
 
 on boot
     setprop sys.usb.configfs 1
@@ -203,17 +219,3 @@ on property:sys.usb.configfs=1 && property:sys.usb.config=vser
 
 on property:ro.bootmode=factorytest && property:ro.debuggable=0
     setprop sys.usb.config vser
-
-on init
-    start logd
-
-service logd /system/bin/logd
-    class core
-    socket logdr seqpacket 0666 root root
-    socket logdw dgram+passcred 0222 root root
-    file /proc/kmsg r
-    file /dev/kmsg w
-    user root
-    group root
-    capabilities SYSLOG AUDIT_CONTROL SETGID SETUID
-    seclabel u:r:logd:s0
