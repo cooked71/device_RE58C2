@@ -65,11 +65,15 @@ DEVICE_MANIFEST_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/vendor.sprd.hardware.thermal@2.0-service.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/vibrator.xml
 
+# lineage recovery
+WITH_LINEAGE_RECOVERY := true
+PRODUCT_PACKAGES += lineage_recovery
+
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.recovery.common.rc \
     init.recovery.usb.rc \
-    init.recovery.RE58C2.rc
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
@@ -117,6 +121,21 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_nico\
     $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_zebu:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_zebu 
 
+# rc files 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/root/init.recovery.common.rc:recovery/root/init.recovery.common.rc \
+    $(LOCAL_PATH)/recovery/root/ueventd.module.rc:recovery/root/ueventd.module.rc \
+    $(LOCAL_PATH)/recovery/root/ueventd.RMX3624.rc:recovery/root/ueventd.RMX3624.rc \
+    $(LOCAL_PATH)/recovery/root/ueventd.ums9230_1h10_go.rc:recovery/root/ueventd.ums9230_1h10_go.rc \
+    $(LOCAL_PATH)/recovery/root/ueventd.ums9230_1h10.rc:recovery/root/ueventd.ums9230_1h10.rc \
+    $(LOCAL_PATH)/recovery/root/ueventd.ums9230_4h10_go.rc:recovery/root/ueventd.ums9230_4h10_go.rc \
+    $(LOCAL_PATH)/recovery/root/ueventd.ums9230_4h10.rc:recovery/root/ueventd.ums9230_4h10.rc \
+    $(LOCAL_PATH)/recovery/root/ueventd.ums9230_6h10.rc:recovery/root/ueventd.ums9230_6h10.rc \
+    $(LOCAL_PATH)/recovery/root/ueventd.ums9230_7h10.rc:recovery/root/ueventd.ums9230_7h10.rc \
+    $(LOCAL_PATH)/recovery/root/ueventd.ums9230_haps.rc:recovery/root/ueventd.ums9230_haps.rc \
+    $(LOCAL_PATH)/recovery/root/ueventd.ums9230_hulk.rc:recovery/root/ueventd.ums9230_hulk.rc \
+    $(LOCAL_PATH)/recovery/root/ueventd.ums9230_nico.rc:recovery/root/ueventd.ums9230_nico.rc \
+    $(LOCAL_PATH)/recovery/root/ueventd.ums9230_zebu.rc:recovery/root/ueventd.ums9230_zebu.rc
 
 
 PRODUCT_PACKAGES += \
