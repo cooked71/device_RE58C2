@@ -244,10 +244,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PREBUILT_DTBO_IMAGE := $(TARGET_PREBUILT_DTBO)
 
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/prebuilts/dtb.img:$(TARGET_COPY_OUT)/dtb.img
+    $(LOCAL_PATH)/prebuilts/dtb.img:$(TARGET_COPY_OUT)/dtb.img
 
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/prebuilts/dtbo.img:dtbo.img
+    $(LOCAL_PATH)/prebuilts/dtbo.img:dtbo.img
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.ums9230_4h10:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.ums9230_4h10
