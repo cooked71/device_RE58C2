@@ -341,6 +341,8 @@ zsmalloc.ko
 
 BOARD_VENDOR_KERNEL_MODULES_LOAD += $(BOOT_KERNEL_MODULES)
 
+#sepolicy for fastdotd
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/common
 
 
 # VINTF manifest

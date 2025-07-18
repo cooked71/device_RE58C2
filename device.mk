@@ -170,12 +170,6 @@ PRODUCT_PACKAGES += \
 # API levels
 PRODUCT_SHIPPING_API_LEVEL := 34
 
-# fastbootd
-PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.1-impl-mock \
-    fastbootd
-
-
 
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *

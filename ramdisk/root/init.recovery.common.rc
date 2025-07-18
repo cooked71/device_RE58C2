@@ -27,6 +27,8 @@ on init
 
     export PATH /sbin:/system/bin:/vendor/bin
     export SECONDARY_STORAGE /storage/sdcard0
+   
+    setprop ro.debuggable 1
 
     mkdir /storage
     mkdir /storage/sdcard1
@@ -92,8 +94,14 @@ on init
     mkdir /config/usb_gadget/g1/functions/gser.gs6 0770 shell shell
     mkdir /config/usb_gadget/g1/functions/gser.gs7 0770 shell shell
 
- 
+    symlink /system/bin/adbd /sbin/adbd
+    symlink /system/bin/fastbootd /sbin/fastbootd
 
+on post-fs-data
+    start adbd
+    start fastbootd
+
+ 
 on boot
     setprop sys.usb.configfs 1
     write /sys/block/mmcblk0boot0/force_ro 0
