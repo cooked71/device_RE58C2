@@ -97,15 +97,7 @@ on init
         mkdir /dev/mapper 0755 root root
     fi
 
-    # Create device-mapper device nodes if missing (dm-0 to dm-15)
-    exec u:r:su:s0 -- sh -c '
-    for i in $(seq 0 15); do
-        if [ ! -b /dev/block/dm-$i ]; then
-            mknod /dev/block/dm-$i b 253 $i
-            chmod 660 /dev/block/dm-$i
-        fi
-    done
-    '
+   
 
 on boot
     setprop sys.usb.configfs 1
