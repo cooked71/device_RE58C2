@@ -166,8 +166,7 @@ service adbd /sbin/adbd recovery
     disabled
     oneshot
     socket adbd stream 660 shell shell
-    restart always
-
+]
 service fastbootd /system/bin/fastbootd
     class main
     console
