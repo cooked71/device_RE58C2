@@ -70,11 +70,6 @@ WITH_LINEAGE_RECOVERY := true
 PRODUCT_PACKAGES += lineage_recovery
 
 
-# Ramdisk
-PRODUCT_PACKAGES += \
-    init.recovery.common.rc \
-    init.recovery.usb.rc \
-
 # Boot control HAL
 PRODUCT_PACKAGES += \
 android.hardware.boot@1.2-impl \
