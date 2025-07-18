@@ -106,24 +106,25 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += adbd.recovery
 
 
-# Fstab
+# fstab files (first stage)
 PRODUCT_COPY_FILES += \
-   $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.module:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.module \
-   $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.RMX3624 \
-   $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_1h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_1h10 \
-   $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_1h10_go:$(TARGET_COPY_OUT_VENDOR_RAMDISK)first_stage_ramdisk/fstab.ums9230_1h10_go \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.module:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.module \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.RMX3624 \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_1h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_1h10 \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_1h10_go:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_1h10_go \
     $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_4h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_4h10 \
     $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_4h10_go:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_4h10_go \
     $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_6h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_6h10 \
     $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_7h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_7h10 \
-    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_haps:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_haps\
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_haps:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_haps \
     $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_hulk:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_hulk \
-    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_nico\
-    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_zebu:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_zebu 
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_nico \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_zebu:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_zebu
 
-# rc files 
+# init and ueventd recovery scripts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/init.recovery.common.rc:recovery/root/init.recovery.common.rc \
+    $(LOCAL_PATH)/recovery/root/init.recovery.common.rc:recovery/root/init.recovery.rc \
     $(LOCAL_PATH)/recovery/root/ueventd.module.rc:recovery/root/ueventd.module.rc \
     $(LOCAL_PATH)/recovery/root/ueventd.RMX3624.rc:recovery/root/ueventd.RMX3624.rc \
     $(LOCAL_PATH)/recovery/root/ueventd.ums9230_1h10_go.rc:recovery/root/ueventd.ums9230_1h10_go.rc \
@@ -136,6 +137,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/ueventd.ums9230_hulk.rc:recovery/root/ueventd.ums9230_hulk.rc \
     $(LOCAL_PATH)/recovery/root/ueventd.ums9230_nico.rc:recovery/root/ueventd.ums9230_nico.rc \
     $(LOCAL_PATH)/recovery/root/ueventd.ums9230_zebu.rc:recovery/root/ueventd.ums9230_zebu.rc
+
 
 
 PRODUCT_PACKAGES += \
