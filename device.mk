@@ -240,6 +240,9 @@ PRODUCT_PACKAGES += \
     init.ums9230_zebu.usb.rc \
     init.zramwb.rc \
 
+
+PRODUCT_PREBUILT_DTBO_IMAGE := $(TARGET_PREBUILT_DTBO)
+
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/prebuilts/dtb.img:$(TARGET_COPY_OUT)/dtb.img
 
