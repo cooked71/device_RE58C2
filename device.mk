@@ -101,7 +101,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += adbd.recovery
 
 PRODUCT_PACKAGES += \
-    adbd \
     fastbootd \
     android.hardware.fastboot@1.0-impl-mock \
     logcat
