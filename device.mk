@@ -100,6 +100,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += adbd.recovery
 
+#TWEAK
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/root/init.recovery.common.rc:recovery/root/init.recovery.rc
+
+
 
 # fstab files (first stage)
 PRODUCT_COPY_FILES += \
@@ -205,7 +210,6 @@ PRODUCT_PACKAGES += \
 
 
 PRODUCT_PACKAGES += \
-    fstab.ums9230_4h10 \
     init.RMX3624.rc \
     init.RMX3624.usb.rc \
     init.cali.rc \
