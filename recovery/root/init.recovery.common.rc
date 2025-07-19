@@ -92,10 +92,6 @@ on init
     mkdir /config/usb_gadget/g1/functions/gser.gs6 0770 shell shell
     mkdir /config/usb_gadget/g1/functions/gser.gs7 0770 shell shell
 
-   
-
-   
-
 on boot
     setprop sys.usb.configfs 1
     write /sys/block/mmcblk0boot0/force_ro 0
@@ -157,33 +153,6 @@ on post-fs-data
 
 on property:ro.debuggable=1
     write /sys/module/smsg/parameters/debug_enable 1
-
-service adbd /sbin/adbd recovery
-    class recovery
-    seclabel u:r:adbd:s0
-    user root
-    group root shell input
-    disabled
-    oneshot
-    socket adbd stream 660 shell shell
-
-service fastbootd /system/bin/fastbootd
-    class main
-    console
-    user root
-    group root system
-    disabled
-    oneshot
-
-# Enable services in recovery
-on property:ro.debuggable=1
-    start adbd
-    start fastbootd
-
-# Trigger fastbootd in recovery
-on property:ro.boot.mode=recovery
-    start fastbootd
-
 
 on property:ro.bootmode=recovery
     class_start recovery
