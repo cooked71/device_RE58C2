@@ -110,6 +110,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/init.recovery.common.rc:recovery/root/init.recovery.rc
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/root/init.rc:recovery/root/init.rc
 
 
 # fstab files (first stage)
