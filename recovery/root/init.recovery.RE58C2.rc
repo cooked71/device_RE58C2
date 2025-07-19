@@ -1,1 +1,2 @@
-
+on post-fs
+    exec /system/bin/copy_cache_to_sd.sh
