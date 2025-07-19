@@ -1,6 +1,12 @@
 #
 ## Please include it in /init.recovery.${ro.hardware}.rc
 #
+# Global common recovery settings
+import /init.recovery.usb.rc                # USB & ADB setup
+import /init.recovery.RE58C2.rc             # SPL loader script and hardware setup
+import /servicemanager.recovery.rc          # Service manager
+import /snapuserd.rc                        # Snapuserd if using dynamic partitions
+import /init.recovery.logd.rc               # Logging
 
 service healthd /system/bin/healthd -r
     critical
