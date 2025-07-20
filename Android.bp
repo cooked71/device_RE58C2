@@ -6,4 +6,3 @@
 
 soong_namespace {
 }
-$(call inherit-product, device/realme/RE58C2/recovery/Android.mk)
