@@ -130,11 +130,16 @@ PRODUCT_COPY_FILES += \
 # init and ueventd recovery scripts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/init.recovery.common.rc:recovery/root/init.recovery.common.rc \
+    $(LOCAL_PATH)/recovery/root/init.recovery.usb.rc:recovery/root/init.recovery.usb.rc \
+    $(LOCAL_PATH)/recovery/root/init.recovery.logd.rc:recovery/root/init.recovery.logd.rc \
+    $(LOCAL_PATH)/recovery/root/servicemanager.rc:recovery/root/servicemanager.rc \
+    $(LOCAL_PATH)/recovery/root/snapuserd.rc:recovery/root/snapuserd.rc \
     $(LOCAL_PATH)/recovery/root/init.recovery.common.rc:recovery/root/init.recovery.rc \
     $(LOCAL_PATH)/recovery/root/ueventd.module.rc:recovery/root/ueventd.module.rc \
     $(LOCAL_PATH)/recovery/root/ueventd.RMX3624.rc:recovery/root/ueventd.RMX3624.rc \
     $(LOCAL_PATH)/recovery/root/ueventd.ums9230_1h10_go.rc:recovery/root/ueventd.ums9230_1h10_go.rc \
     $(LOCAL_PATH)/recovery/root/ueventd.ums9230_1h10.rc:recovery/root/ueventd.ums9230_1h10.rc \
+    $(LOCAL_PATH)/recovery/root/ueventd.ums9230_hulk.rc:recovery/root/ueventd.ums9230_hulk.rc \
     $(LOCAL_PATH)/recovery/root/ueventd.ums9230_4h10_go.rc:recovery/root/ueventd.ums9230_4h10_go.rc \
     $(LOCAL_PATH)/recovery/root/ueventd.ums9230_4h10.rc:recovery/root/ueventd.ums9230_4h10.rc \
     $(LOCAL_PATH)/recovery/root/ueventd.ums9230_6h10.rc:recovery/root/ueventd.ums9230_6h10.rc \
