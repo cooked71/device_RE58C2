@@ -1,12 +1,9 @@
-# Don't declare 'type adbd' — it's already defined upstream
+# DO NOT redeclare 'type adbd' or 'type adbd_exec'
 
-# Keep only exec type declaration if needed
-type adbd_exec, exec_type, file_type;
-
-# This macro sets up adbd as a domain (already declared in base SEPolicy)
+# Set domain behavior for adbd
 init_daemon_domain(adbd)
 
-# Recovery-specific permissive mode for debugging (userdebug or eng only)
+# Recovery-specific permissive mode for debugging
 recovery_only(`
     userdebug_or_eng(`
         permissive adbd;
