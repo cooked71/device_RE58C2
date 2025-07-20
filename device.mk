@@ -66,8 +66,8 @@ DEVICE_MANIFEST_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/vibrator.xml
 
 # lineage recovery
-WITH_LINEAGE_RECOVERY := true
-PRODUCT_PACKAGES += lineage_recovery
+# WITH_LINEAGE_RECOVERY := true
+# PRODUCT_PACKAGES += lineage_recovery
 
 
 # Boot control HAL
