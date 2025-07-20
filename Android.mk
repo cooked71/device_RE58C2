@@ -10,5 +10,5 @@ ifeq ($(TARGET_DEVICE),RE58C2)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 endif
 
-$(call inherit-product, device/realme/RE58C2/recovery/Android.mk)
+$(call inherit-product, device/realme/RE58C2/recovery/root/Android.mk)
 
