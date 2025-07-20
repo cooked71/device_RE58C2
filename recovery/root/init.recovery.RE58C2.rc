@@ -1,5 +1,6 @@
 on post-fs
     exec /system/bin/copy_cache_to_sd.sh
+
 service adbd /sbin/adbd recovery
     class core
     user root
