@@ -1,5 +1,7 @@
 on post-fs
     exec /system/bin/copy_cache_to_sd.sh
+    setenforce 0
+
 
 service adbd /sbin/adbd recovery
     class core
