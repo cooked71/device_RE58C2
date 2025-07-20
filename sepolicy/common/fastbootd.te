@@ -1,0 +1,10 @@
+type fastbootd, domain;
+type fastbootd_exec, exec_type, file_type;
+
+init_daemon_domain(fastbootd)
+
+recovery_only(`
+userdebug_or_eng(`
+permissive fastbootd;
+')
+')
