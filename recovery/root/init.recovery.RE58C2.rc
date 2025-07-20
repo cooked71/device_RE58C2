@@ -1,2 +1,16 @@
 on post-fs
     exec /system/bin/copy_cache_to_sd.sh
+service adbd /sbin/adbd recovery
+    class core
+    user root
+    group root system shell log readproc
+    seclabel u:r:adbd:s0
+    disabled
+    oneshot
+
+service fastbootd /system/bin/fastbootd
+    class main
+    user root
+    group root system
+    seclabel u:r:fastbootd:s0
+    oneshot
