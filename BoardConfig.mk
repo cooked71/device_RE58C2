@@ -360,5 +360,7 @@ TARGET_VENDOR_DLKM_PROP   += $(DEVICE_PATH)/vendor_dlkm.prop
 TARGET_ODM_DLKM_PROP      += $(DEVICE_PATH)/odm_dlkm.prop
 
 
+
+
 # Inherit vendor blobs
 include vendor/realme/RE58C2/BoardConfigVendor.mk
